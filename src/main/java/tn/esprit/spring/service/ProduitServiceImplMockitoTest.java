@@ -64,13 +64,27 @@ public class ProduitServiceImplMockitoTest {
         List<Produit> actualProducts = produitService.retrieveAllProduits();
         assertThat(actualProducts).isEqualTo(lcp);
     }
+    
+    @Test
+    void testRetrieveProduit() {
+        Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p));
+        Produit cp1 = produitService.retrieveProduit((long)1);
+        Assertions.assertNotNull(cp1);
+    }
 
+    @Test
+    void testUpdateCategorieProduit() {
+        Mockito.when(produitRepository.save(Mockito.any(Produit.class))).thenReturn(p);
+        p.setCodeProduit("code");
+        Produit exisitingCP = produitService.updateProduit(p) ;
+        
+        assertNotNull(exisitingCP);
+        assertEquals("code", p.getCodeProduit());
+    }
 
 
    @Test
     void testAddProduit() {
-        //CategorieProduit catP = categorieProduitService.addCategorieProduit(cp);
-        //assertThat(catP).isNotNull();
         Mockito.when(produitRepository.save(Mockito.any(Produit.class))).thenReturn(p);
         Produit NewCP = produitService.addProduit(p);
         assertNotNull(NewCP);
@@ -88,22 +102,8 @@ public class ProduitServiceImplMockitoTest {
 
 
 
-   @Test
-    void testUpdateCategorieProduit() {
-        Mockito.when(produitRepository.save(Mockito.any(Produit.class))).thenReturn(p);
-        p.setCodeProduit("code");
-        Produit exisitingCP = produitService.updateProduit(p) ;
-        
-        assertNotNull(exisitingCP);
-        assertEquals("code", p.getCodeProduit());
-    }
 
 
-   @Test
-    void testRetrieveProduit() {
-        Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(p));
-        Produit cp1 = produitService.retrieveProduit((long)1);
-        Assertions.assertNotNull(cp1);
-    }
+  
 
 }
