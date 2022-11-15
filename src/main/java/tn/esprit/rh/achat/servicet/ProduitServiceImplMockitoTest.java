@@ -1,5 +1,5 @@
 package tn.esprit.rh.achat.servicet;
-/*
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.any;
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,9 +35,9 @@ import tn.esprit.rh.achat.repositories.ReglementRepository;
 import tn.esprit.rh.achat.services.ProduitServiceImpl;
 import tn.esprit.rh.achat.services.ReglementServiceImpl;
 
-@ExtendWith(MockitoExtension.class)*/
+@ExtendWith(MockitoExtension.class)
 public class ProduitServiceImplMockitoTest {
-	 /*
+	 
     @Mock
     ProduitRepository produitRepository;
     
@@ -101,9 +101,5 @@ public class ProduitServiceImplMockitoTest {
     }
 
 
-
-
-
-  */
 
 }
